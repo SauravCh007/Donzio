@@ -347,7 +347,7 @@ const DelegateAssignScreen = (props) => {
     setLoader(false);
     if (!data) {
       setDataLoaded(true);
-      Toast.show(message);
+      // Toast.show(message);
       return;
     }
     setData([...taskContent, ...data.data]);
@@ -394,6 +394,7 @@ const DelegateAssignScreen = (props) => {
       const loadContacts = () => {
         Contacts.getAll()
           .then(contacts => {
+            
             contacts.sort(
               (a, b) =>
                 a.givenName.toLowerCase() > b.givenName.toLowerCase(),
@@ -409,6 +410,9 @@ const DelegateAssignScreen = (props) => {
 
   const onCallModalSelect = (item) => {
     console.log("first",item)
+    console.log("phonenumbers",item.phoneNumbers)
+
+    const fullName = item?.first_name + item?.last_name
 
     // let assignName;
     // if (name.first_name && name.last_name) {
@@ -416,10 +420,39 @@ const DelegateAssignScreen = (props) => {
     // } else {
     //   assignName = name.first_name || name.last_name;
     // }
+   
+
+    // let mob 
+    // if(item.phoneNumbers===undefined){
+    //   mob = item.number
+    //   console.log(mob,"mobmob")
+    // }
+    // else if (item.phoneNumbers[0]?.number===undefined) {
+    //   mob = item.phoneNumbers?.number
+    // }
+    // else {
+    //   mob = item.phoneNumbers[0]?.number
+    // }
+    // console.log("mob",mob)
+    // let number = mob.replace(/[~`!@#$%^&*()+={}\[\];:\'\"<>.,\/\\\?-_]/g, '');
+    // let hyphenRemove = number.replaceAll('-', '')
+    // console.log("hyphenRemove", hyphenRemove)
+    // let f = hyphenRemove.replaceAll(" ","").slice(-10)
+    
+    // let finalNum = f
+    // console.log("finalNum",finalNum)
+
+
+
+
     listingData[currentIndex].profilePicture = item.thumbnailPath;
-    listingData[currentIndex].name = item.displayName;
+    listingData[currentIndex].first_name = item.first_name;
+    listingData[currentIndex].last_name = item.last_name;
+    listingData[currentIndex].fullName = item.first_name  +" "+  item.last_name;
     listingData[currentIndex].id = taskId;
-    listingData[currentIndex].mobile = item.phoneNumbers[0].number;
+    listingData[currentIndex].company_id = item.company_id;
+    listingData[currentIndex].mobile =item.phoneNumbers;
+    listingData[currentIndex].AssignToCompanyName =item.RegisteredCompany ;
     setModalOpen(false);
   };
 
@@ -433,18 +466,20 @@ const DelegateAssignScreen = (props) => {
     const payload = {
       data: listingData,
     };
-    console.log(payload)
+    console.log("payload.data[0].mobile",payload.data[0].mobile)
+    if(payload.data[0].mobile==undefined){
+      setTimeout(() => {
+            Toast.show("please assign a member for all task");
+          }, 1000);
+          return
+    }
+    console.log("payload",payload)
+    
     setLoader(true);
     const { data, message } = await AuthApi.putDataToServer(Api.taskAsign, payload);
-    console.log("res",data,)
+    console.log("onCompleteTask",data)
     setLoader(false);
-    if (!data) {
-      setTimeout(() => {
-        Toast.show(message);
-      }, 1000);
-      return;
-    }
-    //Toast.show("Please assign atleast one team member to task")
+    
     props.navigation.navigate("Dashboard");
   };
 
@@ -489,9 +524,12 @@ const DelegateAssignScreen = (props) => {
               <View style={globalStyles.margintop10}>
                 {listingData &&
                   listingData.map((item, index) => (
+              
                     console.log("dataItem",item),
                     <View key={index}>
+                    
                       <CustomWorkScreen
+                      arrowRight={true}
                         no={index + 1}
                         word={item.content}
                         dollar={item.dollar}
@@ -503,9 +541,12 @@ const DelegateAssignScreen = (props) => {
                           await onCallTapToAssign(item, index);
 
                         }}
-                        assignName={item.name}
+                        assignName={item.fullName}
+                        assignCompanyName={item.AssignToCompanyName}
+                        assignPhoneNumbers={item.phoneNumbers}
                         assignSource={item.profilePicture}
                       />
+                       
                     </View>
                   ))}
               </View>
@@ -533,6 +574,7 @@ const DelegateAssignScreen = (props) => {
               nameData={contacts}
               onPressCross={() => setModalOpen(false)}
               onPressSelectEmploye={(item) => {
+                console.log("item",item)
                 onCallModalSelect(item);
               }}
             />

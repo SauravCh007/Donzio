@@ -13,6 +13,7 @@ const SignUpScreen = props => {
     const mobileNum = props.route.params.mobile
     const token = props.route.params.token
     const userOtp = props.route.params.otp
+    const pre = props.route.params.pre
     const dummy = [
         {
             'id': '1',
@@ -44,13 +45,14 @@ const SignUpScreen = props => {
     const [COmpanyId, setCOmpanyId] = useState();
     const [firtError, setFirtError] = useState('');
     const [lastError, setLastError] = useState('');
+    const [companyError, setCompanyError] = useState('');
     const [mobileError, setMobileError] = useState('');
     const simpleValidator = useRef(new SimpleReactValidator());
     const [allValid, setAllValid] = useState(true);
     const [showLoader, setLoader] = useState(false);
     const [companyData, setCompanyData] = useState(false);
 
-    console.log("companyName",companyName,COmpanyId)
+   
     const createlist = (type, item) => {
         return {
             label: item[type],
@@ -90,8 +92,9 @@ const SignUpScreen = props => {
         const payload = {
             first_name: firtName,
             last_name: lastName,
+            pre: pre,
             mobile: mobileNum,
-            company: COmpanyId,
+            company: companyName,
             token: token,
             otp: userOtp,
         };
@@ -121,7 +124,11 @@ const SignUpScreen = props => {
             setFirtError('* Enter Your First Name');
         } else if (lastName == '') {
             setLastError('* Enter Your Last Name');
-        } else {
+        
+        } else if (companyName == '') {
+            setCompanyError('* Enter Your Company Name');
+        } 
+        else {
             onCallContinue()
         }
     };
@@ -136,7 +143,9 @@ const SignUpScreen = props => {
                 <View style={styles.footer}>
                     <View style={styles.action}>
                         <TextInput
+                             placeholderTextColor={'#00000070'}
                             placeholder="Enter Your First Name"
+
                             style={styles.textInput}
                             autoCapitalize="none"
                             value={firtName}
@@ -149,6 +158,7 @@ const SignUpScreen = props => {
                     <Text style={{ color: 'red', alignSelf: 'flex-start' }}>{firtError}</Text>
                     <View style={styles.action}>
                         <TextInput
+                             placeholderTextColor={'#00000070'}
                             placeholder="Enter Your Last Name"
                             style={styles.textInput}
                             autoCapitalize="none"
@@ -162,6 +172,7 @@ const SignUpScreen = props => {
                     <Text style={{ color: 'red', alignSelf: 'flex-start' }}>{lastError}</Text>
                     <View style={styles.action}>
                         <TextInput
+                             placeholderTextColor={'#00000070'}
                             placeholder="Enter Your Number"
                             style={styles.textInput}
                             autoCapitalize="none"
@@ -175,10 +186,13 @@ const SignUpScreen = props => {
                     </View>
                     <Text style={{ color: 'red', alignSelf: 'flex-start' }}>{mobileError}</Text>
                     {/* <View style={styles.action}> */}
-                    <CustomTextInput type='dropdown'
+                    {/* <CustomTextInput
+                     type='dropdown'
                         data={companyData}
                         Inlinestyle={styles.inlineInput}
+                         placeholderTextColor={'#00000070'}
                         placeholderTextColor={'#fff'}
+                         placeholderTextColor={'#00000070'}
                         placeholder={"Select your Company (Optional)"}
                         onSelect={text => {
                            setCompanyName(text)
@@ -188,15 +202,29 @@ const SignUpScreen = props => {
                         value={companyName}
                         dropView={styles.dropView}
                         myDropDownViewStyle={styles.myDropDownViewStyle}
-                        />
-                    {/* <TextInput
-                            placeholder="Enter Company Id  (Optoinal)"
+                        /> */}
+                    <View style={styles.action}>
+                        <TextInput
+                              placeholderTextColor={'#00000070'}
+                             placeholder="Enter Company name  (Optoinal)"
                             style={styles.textInput}
                             autoCapitalize="none"
-                            value={company}
+                            value={companyName}
+                            onChangeText={v => {
+                                setCompanyName(v);
+                                setCompanyError('')
+                            }}
+                        />
+                    </View>
+                    <Text style={{ color: 'red', alignSelf: 'flex-start' }}>{companyError}</Text>
+                    {/* <TextInput
+                            placeholder="Enter Company name  (Optoinal)"
+                            style={styles.textInput}
+                            autoCapitalize="none"
+                            value={companyName}
                             keyboardType={'number-pad'}
                             onChangeText={v => {
-                                setCompany(v);
+                                setCompanyName(v);
                             }}
                         /> */}
                     {/* </View> */}
@@ -266,7 +294,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         flex: 1,
-        color: 'grey',
+        color: '#00000070',
         paddingLeft: 10,
         fontSize: 15,
         fontWeight: '500',
@@ -309,8 +337,8 @@ const styles = StyleSheet.create({
     },
     myDropDownViewStyle: {
         width: '100%',
-        backgroundColor:'#69696950',
-        marginVertical:5,
+        backgroundColor: '#69696950',
+        marginVertical: 5,
     },
 
 });

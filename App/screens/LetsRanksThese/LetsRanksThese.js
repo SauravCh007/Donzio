@@ -37,7 +37,7 @@ const LetsRanksThese = (props) => {
           source={item.source}
           style={globalStyles.letRankTheseIconStyle}
         />
-        <Text style={globalStyles.mt5}>{index + 1}</Text>
+        <Text style={[globalStyles.mt5,{color:'#00000070'}]}>{index + 1}</Text>
       </View>
     );
   };
@@ -90,6 +90,7 @@ const LetsRanksThese = (props) => {
                   globalStyles.rScreenText,
                   globalStyles.textAlignCenter,
                   globalStyles.mt25,
+                  globalStyles.defaultText
                 ]}
               >
                 {defaultText.letsRankTheseDemo_1}
@@ -99,6 +100,7 @@ const LetsRanksThese = (props) => {
                   globalStyles.rScreenText,
                   globalStyles.textAlignCenter,
                   globalStyles.mt5,
+                  globalStyles.defaultText
                 ]}
               >
                 {defaultText.letsRankTheseDemo_2}
@@ -108,6 +110,7 @@ const LetsRanksThese = (props) => {
                   globalStyles.rScreenText,
                   globalStyles.textAlignCenter,
                   globalStyles.mt5,
+                  globalStyles.defaultText
                 ]}
               >
                 {defaultText.letsRankTheseDemo_3}

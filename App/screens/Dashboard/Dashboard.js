@@ -134,15 +134,15 @@ const Dashboard = props => {
                                 <Image style={globalStyles.dashBImagestyle} source={globalImages.getTask} />
                             </View>
                             <View style={globalStyles.dashBSecondView}>
-                                <Text>{data.item.content}</Text>
+                                <Text style={globalStyles.defaultText}>{data.item.content}</Text>
                             </View>
                         </View>
                         <View style={[globalStyles.dashBTaskMainView, globalStyles.mt10]}>
                             <View style={globalStyles.dashBFirstView}>
-                                <Text>Date :</Text>
+                                <Text style={globalStyles.defaultText}>Date :</Text>
                             </View>
                             <View style={globalStyles.dashBSecondView}>
-                                <Text>{moment(data.item.task_date && data.item.task_date).format('YYYY/MM/DD')}</Text>
+                                <Text style={globalStyles.defaultText}>{moment(data.item.task_date && data.item.task_date).format('YYYY/MM/DD')}</Text>
                             </View>
                         </View>
                     </View>

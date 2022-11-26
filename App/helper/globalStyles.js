@@ -1,5 +1,6 @@
 import { Dimensions, Platform, StyleSheet } from 'react-native';
 import { default as Color, default as defaultColor } from './defaultColor';
+import defaultText from './defaultText';
 const { width, height } = Dimensions.get('window');
 
 const inlineRow = {
@@ -11,6 +12,7 @@ const darkText = {
     textAlign: 'center',
     fontSize: 21,
     fontWeight: 'bold',
+    color:'#00000070'
 };
 const scroll = {
     height: '100%',
@@ -45,14 +47,17 @@ const paddingLeft_10 = {
 const headerText = {
     fontSize: 22,
     fontWeight: 'bold',
+    color:'#00000070'
 };
 const titleText = {
     marginTop: 15,
     fontSize: 18,
     fontWeight: 'bold',
+    color:'#00000070'
 };
 const fontSize_15 = {
     fontSize: 15,
+    color:'#00000070'
 };
 const width_90 = {
     width: '90%',
@@ -62,6 +67,7 @@ const width_100 = {
 };
 const fontSize_20 = {
     fontSize: 20,
+    color:'#00000070'
 };
 const textAlignCenter = {
     textAlign: 'center',
@@ -75,6 +81,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.3,
         borderBottomColor: '#d3d3d3',
     },
+    loginTextInput:{width: '78%', backgroundColor: '#dfe8f4',color:'#00000070', paddingHorizontal: 10, borderRadius: 8, },
     backgroundColorFaintGrey: {
         backgroundColor: defaultColor.greyFaint,
     },
@@ -116,6 +123,10 @@ const styles = StyleSheet.create({
     },
     alignItemsCenter: {
         alignItems: 'center',
+    },
+    defaultText: {
+        color: '#00000070',
+        fontWeight: '600'
     },
     textInputErrorMsg: {
         marginLeft: '19%',
@@ -162,6 +173,7 @@ const styles = StyleSheet.create({
     },
     mt5: {
         marginTop: 5,
+       
     },
     mt25: {
         marginTop: 25,
@@ -189,6 +201,7 @@ const styles = StyleSheet.create({
     },
     paddingLeft_10: {
         paddingLeft: 10,
+        color:'#00000070'
     },
     pl5: {
         marginRight: -10,
@@ -198,6 +211,7 @@ const styles = StyleSheet.create({
     },
     paddingVertical_5: {
         paddingVertical: 5,
+        color:'#00000070'
     },
     fontSize_16: {
         ...fontSize_16,
@@ -205,6 +219,7 @@ const styles = StyleSheet.create({
     fontSize_15: {
         fontSize: 15,
         marginLeft: 5,
+        color:'#00000070'
     },
     mb20: {
         marginBottom: 10,
@@ -253,6 +268,7 @@ const styles = StyleSheet.create({
     darkTextSimple: {
         textAlign: 'center',
         fontSize: 21,
+        color:'#00000070'
     },
     marginTop10: {
         ...marginTop10,
@@ -454,6 +470,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         marginTop: 8,
+        color:'#00000070'
         // marginTop: "5%",
         // marginHorizontal: "3%",
     },
@@ -466,6 +483,7 @@ const styles = StyleSheet.create({
     },
     customTextInputMainView: {
         marginHorizontal: 30,
+        color:'#00000070'
     },
     customTextInputNumberView: {
         alignSelf: 'center',
@@ -474,6 +492,7 @@ const styles = StyleSheet.create({
     },
     customTextInputNumberText: {
         fontSize: 30,
+        color:'#00000070'
     },
     customTextInputWriteView: {
         width: '100%',
@@ -489,11 +508,13 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         fontSize: 15,
         padding: Platform.OS == 'ios' ? 10 : 8,
+        color:'#00000070'
     },
     customTextInputWriteText: {
         marginHorizontal: 8,
         fontSize: 15,
         padding: Platform.OS == 'ios' ? 10 : 8,
+        color:'#00000070'
     },
     thisWeekTop15: {
         marginTop: '15%',
@@ -551,6 +572,7 @@ const styles = StyleSheet.create({
     },
     accScreenBottom30: {
         marginBottom: 30,
+        color:'#00000070'
     },
     accMyToDoText: {
         marginLeft: 20,
@@ -624,6 +646,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginHorizontal: 20,
         marginTop: 20,
+        color:'#00000070'
     },
     cRankMainViewBorder: {
         // marginHorizontal: 20,
@@ -638,6 +661,7 @@ const styles = StyleSheet.create({
 
     cRankWordText: {
         fontSize: 16,
+        color:'#00000070'
     },
     cRankMarVertical: {
         marginVertical: 10,
@@ -662,6 +686,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginBottom: 10,
         opacity: 0.5,
+        color:'#00000070'
     },
     orderSImageView: {
         top: 0,
@@ -703,6 +728,7 @@ const styles = StyleSheet.create({
     cWNoText: {
         marginTop: -3,
         fontSize: 22,
+        color:'#00000070'
     },
     cWWordView: {
         width: '92%',
@@ -710,6 +736,7 @@ const styles = StyleSheet.create({
     },
     cWWordText: {
         fontSize: 18,
+        color:'#00000070'
     },
     cWImageView: {
         flexDirection: 'row',
@@ -732,6 +759,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         textAlign: 'center',
         marginTop: 3,
+        color:'#00000070'
     },
     cWLastView: {
         width: '20%',
@@ -797,6 +825,7 @@ const styles = StyleSheet.create({
     },
     cWAssignText: {
         fontSize: 25,
+        color:'#00000070'
     },
     cWAssignImg: {
         marginLeft: '8%',
@@ -805,8 +834,8 @@ const styles = StyleSheet.create({
     cWAssignImgStyle: {
         height: 65,
         width: 65,
-        borderRadius:50,
-        resizeMode:"cover"
+        borderRadius: 50,
+        resizeMode: "cover"
     },
     cWAssignImgStyleNew: {
         height: 50,
@@ -1040,6 +1069,7 @@ const styles = StyleSheet.create({
     },
     settingOptionTitle: {
         fontSize: 22,
+        color:'#00000070'
     },
     teamMembersMiddleView: {
         width: '65%',
@@ -1122,6 +1152,7 @@ const styles = StyleSheet.create({
     TeamMemberTitle: {
         fontSize: 20,
         paddingLeft: '5%',
+        color:'#00000070'
     },
     customTeamMember: {
         ...row,
@@ -1201,6 +1232,7 @@ const styles = StyleSheet.create({
     },
     uIUserTextName: {
         fontSize: 20,
+        color:'#00000070'
     },
     uIUserTextEmail: {
         color: Color.greyFaint,
@@ -1232,6 +1264,7 @@ const styles = StyleSheet.create({
     },
     uIProjectText: {
         fontSize: 25,
+        color:'#00000070'
     },
     uIProjectViewLast: {
         width: '60%',
@@ -1239,6 +1272,7 @@ const styles = StyleSheet.create({
     uIProjectViewLastText: {
         fontSize: 5,
         padding: 5,
+        color:'#00000070'
     },
     uIMarginL20: {
         marginLeft: 20,
@@ -1391,6 +1425,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: Color.white,
         paddingBottom: 7,
+        color:'#00000070'
     },
     cModalListView: {
         backgroundColor: Color.white,
@@ -1614,10 +1649,12 @@ const styles = StyleSheet.create({
     dateStyle: {
         fontSize: 20,
         top: -5,
+        color:'#000000'
     },
     dateTodayStyle: {
         fontSize: 20,
         fontWeight: 'bold',
+        color:'#00000070'
     },
     addTaskView: {
         alignItems: 'center',
@@ -1815,6 +1852,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         marginBottom: 10,
         marginHorizontal: 10,
+        color:'#00000070'
     },
     letRankTheseIconView: {
         width: '20%',
@@ -1883,6 +1921,7 @@ const styles = StyleSheet.create({
     modalNameText: {
         textAlign: 'center',
         marginTop: 8,
+        color:'#00000070'
     },
     modalImageStyle: {
         height: 60,
@@ -1970,6 +2009,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         // marginLeft: 5
         textAlign: 'center',
+        color:'#00000070'
     },
     listingButtonIcon: {
         height: 25,
@@ -2018,6 +2058,7 @@ const styles = StyleSheet.create({
     TeamMemberTitle: {
         fontSize: 20,
         paddingLeft: '5%',
+        color:'#00000070'
     },
     customTeamMember: {
         ...row,
@@ -2086,6 +2127,7 @@ const styles = StyleSheet.create({
     },
     uIUserTextName: {
         fontSize: 20,
+        color:'#00000070'
     },
     uIUserTextEmail: {
         color: Color.greyFaint,
@@ -2117,6 +2159,7 @@ const styles = StyleSheet.create({
     },
     uIProjectText: {
         fontSize: 25,
+        color:'#00000070'
     },
     uIProjectViewLast: {
         width: '60%',
@@ -2246,6 +2289,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: Color.white,
         paddingBottom: 7,
+        color:'#00000070'
     },
     cModalListView: {
         backgroundColor: Color.white,
@@ -2453,10 +2497,12 @@ const styles = StyleSheet.create({
     },
     dateStyle: {
         fontSize: 20,
+        color:'#00000070'
     },
     dateTodayStyle: {
         fontSize: 20,
         fontWeight: 'bold',
+        color:'#00000070'
     },
     addTaskView: {
         alignItems: 'center',
@@ -2669,7 +2715,7 @@ const styles = StyleSheet.create({
     },
     aboutContainer_1: {
         padding: 15,
-        paddingTop: 0,
+        marginBottom:80
     },
     flexRowCenter: {
         flexDirection: 'row',
@@ -2685,15 +2731,19 @@ const styles = StyleSheet.create({
     mr_5: {
         marginRight: 5,
     },
-    signUp:{
-        justifyContent:'center',
-        alignItems:'center'
+    signUp: {
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    signUpTxt:{
-       fontSize: 12,
-       color:'#000',
-       marginVertical:10
-
+    signUpTxt: {
+        fontSize: 12,
+        color: '#000',
+        marginVertical: 10
+    },
+    modalContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     }
 });
 export default styles;

@@ -1,5 +1,6 @@
 export default {
     signIn: 'Sign In!',
+    signUp:'Sign Up!',
     toBeThisWeek: 'To Be This Week?',
     rankYourTo: "Rank your To-Do's on a Scale of 1-5 ",
     continue: 'Continue',

@@ -79,6 +79,7 @@ const DelegatedItemScreen = (props) => {
     };
     setLoader(true);
     const { data, message } = await AuthApi.putDataToServer(Api.tasks, payload);
+    console.log("data",data)
     setLoader(false);
     if (!data) {
       Toast.show(message);
@@ -142,7 +143,6 @@ const DelegatedItemScreen = (props) => {
               }}
             >
               <View style={globalStyles.marginTop10}>
-                <Text>hello</Text>
                 {listingData &&
                   listingData.map((item, index) => (
                     <View key={index}>
@@ -154,6 +154,7 @@ const DelegatedItemScreen = (props) => {
                         heart={item.heart}
                         assignTask={true}
                         assignName={assignNameDetail(item)}
+                        assign_company={item.assign_company}
                         assignSource={
                           item.assignee_profile_name &&
                           item.assignee_profile_name

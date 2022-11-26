@@ -48,6 +48,7 @@ const CustomTextInput = (props) => {
                 : globalStyles.customTextInputWriteText
             }
             placeholder={placeholder}
+            placeholderTextColor={'#00000070'}
             secureTextEntry={check}
             keyboardType={keyboardType}
             onChangeText={onChangeText}

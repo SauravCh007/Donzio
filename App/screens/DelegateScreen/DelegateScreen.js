@@ -61,7 +61,7 @@ const DelegateScreen = (props) => {
     const taskContent = currentPage == 1 ? [] : listingData;
     const getDelegateTask = `${Api.tasks}?heart_dollar=1&status=1&is_task_assigned=2&sort_direction=descending&page=${page}&limit=${limit}`;
     const { data, message } = await AuthApi.getDataFromServer(getDelegateTask);
-    console.log("task",data)
+    console.log("message",message)
 
     setLoader(false);
     setDataLoaded(true);

@@ -56,7 +56,7 @@ const UserInfoScreen = (props) => {
   };
 
   const onPageInit = async () => {
-    const getUserId = await props.route.params.selectedUserId;
+    const getUserId = await props?.route?.params?.selectedUserId;
     //
     setUserId(getUserId);
     getUserDetails(getUserId);
@@ -73,9 +73,9 @@ const UserInfoScreen = (props) => {
       props.navigation.goBack();
       return;
     }
-    await setUserInfo(data.data);
-    await setSelectedItem(data.data.role_name);
-    await setRollId(data.data.role);
+    await setUserInfo(data?.data);
+    await setSelectedItem(data?.data?.role_name);
+    await setRollId(data?.data?.role);
   };
 
   const getUserRollDetails = async () => {
@@ -102,7 +102,10 @@ const UserInfoScreen = (props) => {
       props.navigation.goBack();
       return;
     }
-    setTaskInfo(data.data && data.data);
+    let arr 
+    arr.push(data?.data && data?.data)
+    
+    setTaskInfo(arr);
   };
 
   const onCallRemoveUser = async () => {
@@ -133,7 +136,7 @@ const UserInfoScreen = (props) => {
       Toast.show("something is wrong");
       return;
     }
-    Toast.show(data.message[0]);
+    Toast.show(data?.message[0]);
   };
 
   return (
@@ -205,7 +208,7 @@ const UserInfoScreen = (props) => {
 
               <View style={globalStyles.uIProjectViewLast}>
                 {taskInfo &&
-                  taskInfo.map((item, index) => (
+                  taskInfo?.map((item, index) => (
                     <View
                       style={[globalStyles.uIMarginL20, globalStyles.row]}
                       key={index}
@@ -213,7 +216,7 @@ const UserInfoScreen = (props) => {
                       <Text style={globalStyles.uIProjectViewLastText}>
                         {"\u2B24"}{" "}
                       </Text>
-                      <Text>{item.content}</Text>
+                      <Text style={globalStyles.defaultText}>{item.content}</Text>
                     </View>
                   ))}
               </View>

@@ -42,11 +42,14 @@ class authApi {
             );
     };
     putDataToServer = async (endPoint, payload) => {
+        console.log('endpoint is as follows ', endPoint);
+        console.log('payload is as follows ', payload);
         this.checkNetwork();
         return httpService
             .put(endPoint, payload) // eslint-disable-line
             .then(
                 response => {
+                  
                     return this.responseHandler(response);
                 },
                 err => {

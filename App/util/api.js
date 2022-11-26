@@ -16,6 +16,8 @@ export default class Api extends Component {
     static register = `${Api.baseUrl}newRegister/`;
     static companyApi = `${Api.baseUrl}company/`;
     static taskAsign = `${Api.baseUrl}task-asign/`;
+    static GetCountry = `${Api.baseUrl}getcountry/`;
+    static GetRegisteredUser = `${Api.baseUrl}get-info-by-mobile/`;
     // static aboutUs = `${Api.baseUrl}about-us/`;
 
 
@@ -37,7 +39,7 @@ export default class Api extends Component {
             // Default: development server
             default:
                 // url = "https://poc.reviewtestlink.com/api/v1/";
-                url = 'http://quality-web-programming.com/projects/f11/donzio/api/';
+                url = 'https://quality-web-programming.com/projects/f11/donzio/api/';
                 break;
         }
         return url;

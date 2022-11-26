@@ -34,7 +34,7 @@ const CustomDropDownForRole = (props) => {
             <Text
               numberOfLines={2}
               style={{
-                color: selectedItem == "Select Item" ? "grey" : "black",
+                color: selectedItem == "Select Item" ? "#696969" : "#000000",
               }}
               onPress={onSelectValue}
             >
@@ -66,7 +66,7 @@ const CustomDropDownForRole = (props) => {
         >
           <ScrollView>
             {data &&
-              data.map((i) =>
+              data?.map((i) =>
                 Platform.OS == "ios" ? (
                   <TouchableNativeFeedback
                     style={globalStyles.customDropDownlistText}
@@ -91,7 +91,7 @@ const CustomDropDownForRole = (props) => {
                     }}
                   >
                     <View style={globalStyles.customDropDownlistText}>
-                      <Text numberOfLines={2}>{i.value}</Text>
+                      <Text style={globalStyles.defaultText} numberOfLines={2}>{i.value}</Text>
                     </View>
                   </TouchableOpacity>
                 )

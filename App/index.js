@@ -23,7 +23,7 @@ const AppContainer = () => {
     <>
       <StatusBar
         backgroundColor={defaultColor.skyBlue}
-        barStyle={"dark-content"}
+        barStyle={'default'}
       />
       <NetworkModal stateStatus={networkModal} />
       <Navigation />

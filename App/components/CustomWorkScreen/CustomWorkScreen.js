@@ -16,6 +16,7 @@ const CustomWorkScreen = (props) => {
   const {
     no,
     word,
+    arrowRight,
     title,
     dollar,
     heart,
@@ -37,6 +38,9 @@ const CustomWorkScreen = (props) => {
     isCheck,
     assignSource,
     assignName,
+    assignCompanyName,
+    assignPhoneNumbers,
+    assign_company,
     assignCheck,
     assigncheckImg,
     onPressItem,
@@ -119,23 +123,23 @@ const CustomWorkScreen = (props) => {
                           delegateImg
                             ? globalStyles.cWDelegateImageStyle
                             : delayImg
-                            ? globalStyles.cWDelayImageStyle
-                            : deleteImg
-                            ? globalStyles.cWDeleteImageStyle
-                            : arrowCheck
-                            ? globalStyles.cWArrowImageStyle
-                            : null
+                              ? globalStyles.cWDelayImageStyle
+                              : deleteImg
+                                ? globalStyles.cWDeleteImageStyle
+                                : arrowCheck
+                                  ? globalStyles.cWArrowImageStyle
+                                  : null
                         }
                         source={
                           delegateImg
                             ? globalImages.delegate
                             : delayImg
-                            ? globalImages.delay
-                            : deleteImg
-                            ? globalImages.delete
-                            : arrowCheck
-                            ? globalImages.arrowRight
-                            : null
+                              ? globalImages.delay
+                              : deleteImg
+                                ? globalImages.delete
+                                : arrowCheck
+                                  ? globalImages.arrowRight
+                                  : null
                         }
                       />
                     </TouchableOpacity>
@@ -235,7 +239,7 @@ const CustomWorkScreen = (props) => {
           <TouchableOpacity
             onPress={onPressImage}
             activeOpacity={0.6}
-           
+
             disabled={disabled}
           >
             <View style={globalStyles.cWassignView}>
@@ -279,14 +283,47 @@ const CustomWorkScreen = (props) => {
                     </Text>
                   </View>
                 )}
-              </View>
 
-              <View style={globalStyles.cWAssignLastArrow}>
-                <Image
-                  style={globalStyles.cWAssignLastArrowStyle}
-                  source={globalImages.arrowRight}
-                />
+                {assign_company ? (
+                  <View>
+                    <Text style={globalStyles.cWTapAssignTextNew}>
+                      {assign_company}
+                    </Text>
+                    <Text style={globalStyles.cWTapAssignTextNew}></Text>
+                  </View>
+                ) : (
+                  null
+                )}
+                {assignCompanyName ? (
+                  <View>
+                    <Text style={globalStyles.cWTapAssignTextNew}>
+                      {assignCompanyName}
+                    </Text>
+                    <Text style={globalStyles.cWTapAssignTextNew}></Text>
+                  </View>
+                ) : (
+                  null
+                )}
+                {assignPhoneNumbers ? (
+                  <View>
+                    <Text style={globalStyles.cWTapAssignTextNew}>
+                      {assignPhoneNumbers}
+                    </Text>
+                    <Text style={globalStyles.cWTapAssignTextNew}></Text>
+                  </View>
+                ) : (
+                  null
+                )}
               </View>
+              {arrowRight &&
+                <View style={globalStyles.cWAssignLastArrow}>
+                  <Image
+                    style={globalStyles.cWAssignLastArrowStyle}
+                    source={globalImages.arrowRight}
+                  />
+                </View>
+              }
+
             </View>
           </TouchableOpacity>
         </View>

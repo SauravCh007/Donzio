@@ -11,6 +11,8 @@ const OtpScreen = props => {
     const userOtp = props.route.params.otp;
     const userNum = props.route.params.mobile;
     const userToken = props.route.params.token;
+    const pre = props.route.params.pre;
+    console.log("first",pre)
     const [otp, setOtp] = useState('');
     const [loader,setLoader] = useState(false)
     const onSubmit = () => {
@@ -25,6 +27,7 @@ const OtpScreen = props => {
             Toast.show('User Verified');
             props.navigation.navigate('SignUpScreen', {
                 mobile: userNum,
+                pre:pre,
                 token: userToken,
                 otp: userOtp
             });
@@ -66,12 +69,13 @@ const OtpScreen = props => {
                 <Text style={styles.verifyText}>Verification !</Text>
             </View>
             <View style={styles.footer}>
-                <Text style={{ fontSize: 16, marginBottom: 10, fontWeight: '600' }}>
+                <Text style={globalStyles.loginTextScreen}>
                     Enter your one time password
                 </Text>
                 <View style={styles.action}>
                     <TextInput
                         placeholder="Enter One-Time Password"
+                        placeholderTextColor={'#00000070'}
                         style={styles.textInput}
                         autoCapitalize="none"
                         onChangeText={text => setOtp(text)}
@@ -141,7 +145,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         flex: 1,
-        color: 'grey',
+        color: '#00000070',
     },
     button: {
         alignItems: 'center',

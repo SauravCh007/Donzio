@@ -70,7 +70,7 @@ const CustomRankScreen = (props) => {
               {dataNo &&
                 dataNo.map((item, index) => (
                   <View style={globalStyles.cRankNoView} key={index}>
-                    <Text>{item}</Text>
+                    <Text style={globalStyles.defaultText}>{item}</Text>
                   </View>
                 ))}
             </View>

@@ -27,9 +27,13 @@ const About = props => {
         if (data && data.data) {
             setLoader(false);
             let about = data && data.data[0];
-            setHtmlContent({ html: about.html_description });
+            let content = '<div style="color: black">' + about.html_description  + '</div>'; 
+            setHtmlContent({ html: content });
+            console.log(content)
         }
     };
+
+
 
     return (
         <Fragment>
